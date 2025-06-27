@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8"> <!-- Define o conjunto de caracteres para UTF-8, que suporta acentuação -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Torna o site responsivo em diferentes tamanhos de tela -->
+  <title>Restaurante Sabor da Casa</title> <!-- Título da página exibido na aba do navegador -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Importa o CSS do Bootstrap para uso dos estilos prontos -->
+</head>
+<body>
+
+  <!-- Barra de navegação com logo e botão para acessar o cardápio -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <!-- Navbar com cor escura e responsiva -->
+    <div class="container-fluid">
+      <!-- Marca do restaurante com logo ao lado -->
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="restaurante.jpeg" alt="Logo" width="40" height="40" class="me-2 rounded-circle"> <!-- Logo arredondado -->
+        <span>Sabor da Casa</span> <!-- Nome do restaurante -->
+      </a>
+      <!-- Botão para abrir o menu em dispositivos móveis -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Links do menu alinhados à direita -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="btn btn-warning" href="cardapio.html">Ver Cardápio</a> <!-- Botão para ver o cardápio -->
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner de boas-vindas com imagem e texto -->
+  <div class="bg-light border border-warning border-2 py-5"> <!-- Fundo claro com borda amarela -->
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-center text-center text-md-start">
+      <img src="restaurante.jpeg" alt="Logo do Restaurante" class="img-fluid mb-3 mb-md-0 me-md-4" style="max-width: 120px;"> <!-- Imagem ao lado do texto -->
+      <div>
+        <h1 class="display-5">Bem-vindo ao Restaurante Sabor da Casa!</h1> <!-- Título de destaque -->
+        <p class="lead">Comida caseira de alta qualidade.</p> <!-- Subtítulo/slogan -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Seção de horário de funcionamento -->
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Horário de Funcionamento</h2> <!-- Título da seção -->
+    <div class="table-responsive"> <!-- Torna a tabela rolável em telas pequenas -->
+      <table class="table table-bordered text-center"> <!-- Tabela com bordas e texto centralizado -->
+        <thead class="table-dark"> <!-- Cabeçalho escuro -->
+          <tr>
+            <th>Dia da Semana</th>
+            <th>Horário</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Dias e horários de funcionamento -->
+          <tr><td>Segunda-feira</td><td>11:00 - 15:00</td></tr>
+          <tr><td>Terça-feira</td><td>11:00 - 15:00</td></tr>
+          <tr><td>Quarta-feira</td><td>11:00 - 15:00</td></tr>
+          <tr><td>Quinta-feira</td><td>11:00 - 15:00</td></tr>
+          <tr><td>Sexta-feira</td><td>11:00 - 15:00</td></tr>
+          <tr><td>Sábado</td><td>11:00 - 16:00</td></tr>
+          <tr><td>Domingo</td><td>Fechado</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Seção de contato com formulário -->
+  <div class="container mb-5">
+    <h2 class="text-center mb-4">Entre em Contato</h2>
+
+    <!-- Alerta de sucesso que aparece após envio do formulário -->
+    <div id="alerta-sucesso" class="alert alert-success alert-dismissible fade d-none" role="alert">
+      Mensagem enviada com sucesso! <!-- Texto do alerta -->
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> <!-- Botão para fechar o alerta -->
+    </div>
+
+    <!-- Formulário com campos de contato -->
+    <form id="formContato">
+      <div class="row mb-3">
+        <div class="col-md-6 mb-3">
+          <label for="nome" class="form-label">Nome</label>
+          <input type="text" class="form-control" id="nome" placeholder="Seu nome"> <!-- Campo de nome -->
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="email" class="form-label">E-mail</label>
+          <input type="email" class="form-control" id="email" placeholder="seu@email.com"> <!-- Campo de email -->
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="telefone" class="form-label">Telefone</label>
+        <input type="tel" class="form-control" id="telefone" placeholder="(00) 00000-0000"> <!-- Campo de telefone -->
+      </div>
+      <div class="mb-3">
+        <label for="mensagem" class="form-label">Mensagem</label>
+        <textarea class="form-control" id="mensagem" rows="4" placeholder="Digite sua mensagem aqui..."></textarea> <!-- Campo de mensagem -->
+      </div>
+      <!-- Botão que executa a função JavaScript ao ser clicado -->
+      <button type="button" class="btn btn-primary" onclick="enviarMensagem()">Enviar Mensagem</button>
+    </form>
+  </div>
+
+  <!-- Rodapé do site -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">&copy; 2025 Restaurante Sabor da Casa. Todos os direitos reservados.</p> <!-- Copyright -->
+  </footer>
+
+  <!-- Scripts JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> <!-- Importa JS do Bootstrap -->
+
+  <script>
+    // Função chamada ao clicar no botão "Enviar Mensagem"
+    function enviarMensagem() {
+      const alerta = document.getElementById('alerta-sucesso'); // Seleciona o elemento do alerta
+      alerta.classList.remove('d-none'); // Remove a classe que esconde o alerta
+      alerta.classList.add('show'); // Adiciona classe para exibir o alerta com efeito Bootstrap
+
+      // Limpa todos os campos do formulário
+      document.getElementById('formContato').reset();
+    }
+  </script>
+</body>
+</html>
+
